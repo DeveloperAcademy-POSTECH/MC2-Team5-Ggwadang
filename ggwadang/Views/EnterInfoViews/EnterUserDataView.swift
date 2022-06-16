@@ -12,37 +12,49 @@ struct EnterUserDataView: View {
     @AppStorage(StorageKeys.gender.rawValue) private var gender: Int = UserDefaults.standard.integer(forKey: "gender") // 유저의 성별(남:0, 여:1)
     @AppStorage(StorageKeys.age.rawValue) private var age: Int =  20 // 유저의 만나이(기본값 20)
     @AppStorage(StorageKeys.sugar.rawValue) private var sugar : Double = UserDefaults.standard.double(forKey: "sugar")  // 유저의 설탕값
-
+    
     @Binding var isFirstDataInput: Bool
-
+    
     let genderType = ["남성","여성"]    // 성별 테이블
-
+    
     var body: some View {
         NavigationView {
+            
             VStack (alignment: .leading){
+                Spacer()
                 // 닉네임 입력
                 Text("닉네임을 입력하세요.")
-                    .font(.title)
                     .bold()
+                    .padding(.top, 20)
+                    .padding(.bottom, 5)
                 ZStack {
                     TextFieldBox()
+                        .frame(width: 350)
                     TextField("홍길동", text: $nickName).keyboardType(.default)
                         .padding(.leading)
+                        .submitLabel(.done)
                 }
-                .frame(height: 50)
-
+                .frame(height: 44)
+                .padding(.bottom, 40)
+                
                 // 성별 선택(애니메이션 기능 구현 예정)
                 Text("성별을 선택해주세요.")
-                    .font(.title)
                     .bold()
-                GenderSegmentedBar(selected: $gender)
-                    .frame(height: 100)
-                    .padding(.horizontal, 60)
-
+                    .padding(.bottom, 5)
+                HStack {
+                    Spacer()
+                    GenderSegmentedBar(selected: $gender)
+                        .frame(width: 220, height: 44)
+                    Spacer()
+                }
+                .shadow(color: .black.opacity(0.1), radius: 10, x: 10, y: 10)
+                .shadow(color: .white.opacity(0.7), radius: 10, x: -5, y: -5)
+                .padding(.bottom, 40)
+                
                 // 나이 선택
                 Text("나이를 선택하세요.")
-                    .font(.title)
                     .bold()
+                    .padding(.bottom, 5)
                 Picker("나이를 선택하셈",selection: $age){
                     // 1살부터 75살까지
                     ForEach(0 ..< 76){
@@ -51,23 +63,29 @@ struct EnterUserDataView: View {
                         } else {
                             Text("만 \($0+1)세")
                         }
-
                     }
                 }
                 .pickerStyle(.wheel)
                 .cornerRadius(20)
-
-                NavigationLink(destination: EnterSugarView(isFirstDataInput: $isFirstDataInput)) {
-                    NextButton(buttonText: "다음으로")
-                        .frame(height: 50)
-                }
+                .padding(.bottom, 40)
+                
+                HStack {
+                    Spacer()
+                    NavigationLink(destination: EnterSugarView(isFirstDataInput: $isFirstDataInput, nickName: $nickName)) {
+                        NextButton(buttonText: "다음으로")
+                            .frame(width: 350, height: 56)
+                    }
                     .buttonStyle(PlainButtonStyle())
+                    Spacer()
+                }
+                
             }
-            .padding()
+            .ignoresSafeArea(.keyboard)
+            .frame(width: 350)
             .navigationBarHidden(true)
-
+            .padding(.bottom, 20)
         }
-        // 달력의 값이 변경될 때 마다 설탕 값 새롭게 갱신
+        // 나이 값이 변경될 때 마다 설탕 값 새롭게 갱신
         .onChange(of: $age.wrappedValue) { _ in
             sugar = sugarGram()
         }
@@ -80,7 +98,7 @@ struct EnterUserDataView: View {
             sugar = sugarGram()
         }
     }
-
+    
     // 나이와 성별에 따른 kcal를 통해 권장 섭취 당을 구하는 함수
     func sugarGram() -> Double {
         var kcal : Double = 0
@@ -143,5 +161,5 @@ struct EnterUserDataView: View {
         // 하루 필요 추정량(kcal)의 10%에 대한 당(g)을 계산
         return kcal / 40
     }
-
+    
 }
