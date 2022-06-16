@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var store: RecordStore
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ListView(records: store.records)
     }
 }
 
