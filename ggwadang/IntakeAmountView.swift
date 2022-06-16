@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct IntakeAmountView: View {
+    @Binding var isPresented: Bool
     @State var Today = Date.now
     @Binding var large_isSelected: String
     @Binding var medium_isSelected: String
@@ -42,7 +43,9 @@ struct IntakeAmountView: View {
                             .foregroundColor(self.isSelected[num] ?Color.white : Color.black)
                     }
                     .frame(width: 100, height: 70)
-                    .background(RoundedRectangle(cornerRadius: 15).fill(self.isSelected[num] ? Color.accentColor : Color.white).shadow(radius: 5, y: 3))
+                    .background(RoundedRectangle(cornerRadius: 15)
+                        .fill(self.isSelected[num] ? Color.accentColor : Color.white)
+                        .shadow(color: Color.black.opacity(0.1), radius: 5, y: 3))
                 }
                 Button {
                     directTyping.toggle()
@@ -51,7 +54,9 @@ struct IntakeAmountView: View {
                     }
                 } label: {Text("직접 입력").foregroundColor(self.directTyping ?Color.white : Color.black)}
                     .frame(width: 100, height: 70)
-                    .background(RoundedRectangle(cornerRadius: 15).fill(self.directTyping ? Color.accentColor : Color.white).shadow(radius: 5, y: 3))
+                    .background(RoundedRectangle(cornerRadius: 15)
+                        .fill(self.directTyping ? Color.accentColor : Color.white)
+                        .shadow(color: Color.black.opacity(0.1), radius: 5, y: 3))
             }.padding(.top, 5)
             if(directTyping) {
                 TextField("섭취량(g/ml)을 입력하세요.", value: $intake, format: .number)
@@ -63,7 +68,7 @@ struct IntakeAmountView: View {
             Spacer()
             Button {
                 // TODO: 데이터 저장
-                UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true)
+                isPresented.toggle()
             } label: {
                 Text("당 \(intake*sugarAmount, specifier: "%.1f")g 추가하기")
                     .foregroundColor(Color.white)
@@ -77,7 +82,7 @@ struct IntakeAmountView: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action:{
-                    UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true)
+                    isPresented.toggle()
                 }){Image(systemName: "xmark")}
             }
         }

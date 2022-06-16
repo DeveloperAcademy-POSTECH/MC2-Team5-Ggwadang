@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SmallCategoryView: View {
+    @Binding var isPresented: Bool
     @Binding var large_isSelected: String
     @Binding var medium_isSelected: String
     @Binding var small_isSelected: String
@@ -17,7 +18,7 @@ struct SmallCategoryView: View {
 
     var body: some View {
         List(0..<smallArray.count) { num in
-            NavigationLink(destination: IntakeAmountView(large_isSelected: self.$large_isSelected, medium_isSelected: self.$medium_isSelected, small_isSelected: self.$smallArray[num])) {
+            NavigationLink(destination: IntakeAmountView(isPresented: self.$isPresented, large_isSelected: self.$large_isSelected, medium_isSelected: self.$medium_isSelected, small_isSelected: self.$smallArray[num])) {
                 Text(smallArray[num])
             }
         }
@@ -28,7 +29,7 @@ struct SmallCategoryView: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action:{
-                    UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true)
+                    isPresented.toggle()
                 }){Image(systemName: "xmark")}
             }
         }
