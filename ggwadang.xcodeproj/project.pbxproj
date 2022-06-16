@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D0C64C8285AFB0200FF70E6 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C64C7285AFB0200FF70E6 /* ListView.swift */; };
+		4D0C64CC285AFBA700FF70E6 /* LargeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C64CB285AFBA700FF70E6 /* LargeCategoryView.swift */; };
+		4D0C64CE285AFBEB00FF70E6 /* MediumCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C64CD285AFBEB00FF70E6 /* MediumCategoryView.swift */; };
+		4D0C64D0285AFC3400FF70E6 /* SmallCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C64CF285AFC3400FF70E6 /* SmallCategoryView.swift */; };
+		4D0C64D2285AFC5500FF70E6 /* IntakeAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C64D1285AFC5500FF70E6 /* IntakeAmountView.swift */; };
+		4D0C64D4285AFC7D00FF70E6 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C64D3285AFC7D00FF70E6 /* SearchView.swift */; };
 		4D7275FE284CEE5800F4DCC6 /* ggwadangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7275FD284CEE5800F4DCC6 /* ggwadangApp.swift */; };
 		4D727600284CEE5800F4DCC6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7275FF284CEE5800F4DCC6 /* ContentView.swift */; };
 		4D727602284CEE5800F4DCC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D727601284CEE5800F4DCC6 /* Assets.xcassets */; };
@@ -14,6 +20,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D0C64C7285AFB0200FF70E6 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		4D0C64CB285AFBA700FF70E6 /* LargeCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCategoryView.swift; sourceTree = "<group>"; };
+		4D0C64CD285AFBEB00FF70E6 /* MediumCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumCategoryView.swift; sourceTree = "<group>"; };
+		4D0C64CF285AFC3400FF70E6 /* SmallCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCategoryView.swift; sourceTree = "<group>"; };
+		4D0C64D1285AFC5500FF70E6 /* IntakeAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeAmountView.swift; sourceTree = "<group>"; };
+		4D0C64D3285AFC7D00FF70E6 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		4D7275FA284CEE5800F4DCC6 /* ggwadang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ggwadang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7275FD284CEE5800F4DCC6 /* ggwadangApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ggwadangApp.swift; sourceTree = "<group>"; };
 		4D7275FF284CEE5800F4DCC6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +65,12 @@
 			children = (
 				4D7275FD284CEE5800F4DCC6 /* ggwadangApp.swift */,
 				4D7275FF284CEE5800F4DCC6 /* ContentView.swift */,
+				4D0C64C7285AFB0200FF70E6 /* ListView.swift */,
+				4D0C64CB285AFBA700FF70E6 /* LargeCategoryView.swift */,
+				4D0C64CD285AFBEB00FF70E6 /* MediumCategoryView.swift */,
+				4D0C64CF285AFC3400FF70E6 /* SmallCategoryView.swift */,
+				4D0C64D1285AFC5500FF70E6 /* IntakeAmountView.swift */,
+				4D0C64D3285AFC7D00FF70E6 /* SearchView.swift */,
 				4D727601284CEE5800F4DCC6 /* Assets.xcassets */,
 				4D727603284CEE5800F4DCC6 /* Preview Content */,
 			);
@@ -137,8 +155,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D0C64D0285AFC3400FF70E6 /* SmallCategoryView.swift in Sources */,
+				4D0C64D4285AFC7D00FF70E6 /* SearchView.swift in Sources */,
 				4D727600284CEE5800F4DCC6 /* ContentView.swift in Sources */,
+				4D0C64CE285AFBEB00FF70E6 /* MediumCategoryView.swift in Sources */,
+				4D0C64CC285AFBA700FF70E6 /* LargeCategoryView.swift in Sources */,
+				4D0C64D2285AFC5500FF70E6 /* IntakeAmountView.swift in Sources */,
 				4D7275FE284CEE5800F4DCC6 /* ggwadangApp.swift in Sources */,
+				4D0C64C8285AFB0200FF70E6 /* ListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
