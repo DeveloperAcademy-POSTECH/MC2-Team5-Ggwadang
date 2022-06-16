@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SmallCategoryView: View {
+    @EnvironmentObject var store: RecordStore
     @Binding var isPresented: Bool
     @Binding var large_isSelected: String
     @Binding var medium_isSelected: String
@@ -18,7 +19,7 @@ struct SmallCategoryView: View {
 
     var body: some View {
         List(0..<smallArray.count) { num in
-            NavigationLink(destination: IntakeAmountView(isPresented: self.$isPresented, large_isSelected: self.$large_isSelected, medium_isSelected: self.$medium_isSelected, small_isSelected: self.$smallArray[num])) {
+            NavigationLink(destination: IntakeAmountView(isPresented: self.$isPresented, large_isSelected: self.$large_isSelected, medium_isSelected: self.$medium_isSelected, small_isSelected: self.$smallArray[num]).environmentObject(self.store)) {
                 Text(smallArray[num])
             }
         }

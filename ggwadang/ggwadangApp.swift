@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 @main
-struct ggwadangApp: App {
+struct ggwadangApp: SwiftUI.App {
     var body: some Scene {
+        let realm = try! Realm()
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(RecordStore(realm: realm))
         }
     }
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct IntakeAmountView: View {
+    @EnvironmentObject var store: RecordStore
     @Binding var isPresented: Bool
     @State var Today = Date.now
     @Binding var large_isSelected: String
@@ -67,7 +68,7 @@ struct IntakeAmountView: View {
             
             Spacer()
             Button {
-                // TODO: 데이터 저장
+                saveRecord()
                 isPresented.toggle()
             } label: {
                 Text("당 \(intake*sugarAmount, specifier: "%.1f")g 추가하기")
@@ -86,5 +87,23 @@ struct IntakeAmountView: View {
                 }){Image(systemName: "xmark")}
             }
         }
+    }
+}
+
+extension IntakeAmountView {
+    func saveRecord() {
+        store.create(
+            date: dateFormatter(date: Today),
+            large: large_isSelected,
+            medium: medium_isSelected,
+            small: small_isSelected,
+            sugar: intake*sugarAmount)
+    }
+    
+    func dateFormatter(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        let converted = formatter.string(from: date)
+        return converted
     }
 }

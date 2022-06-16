@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var store: RecordStore
     var body: some View {
-        ListView()
+        ListView(records: store.records)
     }
 }
 
