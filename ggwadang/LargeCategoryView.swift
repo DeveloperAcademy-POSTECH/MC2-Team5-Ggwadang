@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct LargeCategoryView: View {
+    @Binding var isPresented: Bool
     @State var large_isSelected = ""
     @State var medium_isSelected = ""
     @State var small_isSelected = ""
     
-    // FIXME: 대분류 확정되면 변경
-    let largeArray = [["베이커리","🥐"], ["과자","🍪"], ["음료","🥤"], ["아이스크림","🍦"], ["캔디,젤리,양갱","🍬"], ["초콜릿,캐러멜","🍫"], ["유가공품","🥛"], ["떡","🍡"],["견과류","🥜"]]
+    let largeArray = [["빵","🥐"], ["과자류","🍪"], ["견과류, 떡","🥜"], ["음료","🥤"], ["유가공품","🥛"], ["아이스크림","🍦"], ["초콜릿","🍫"], ["캔디, 젤리","🍬"], ["캐러멜, 양갱","🍮"]]
     var gridItemLayout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
         NavigationView{
             VStack {
                 Button {
-                    UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true)
+                    isPresented.toggle()
                 } label: {
                     Image(systemName: "xmark")
                 }.frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 20)
@@ -34,10 +34,12 @@ struct LargeCategoryView: View {
                 
                 LazyVGrid(columns: gridItemLayout, spacing: 10) {
                     ForEach((0..<largeArray.count), id: \.self) { num in
-                        NavigationLink(destination: MediumCategoryView(large_isSelected: self.$large_isSelected, medium_isSelected: self.$medium_isSelected, small_isSelected: self.$small_isSelected)) {
+                        NavigationLink(destination: MediumCategoryView(isPresented: self.$isPresented, large_isSelected: self.$large_isSelected, medium_isSelected: self.$medium_isSelected, small_isSelected: self.$small_isSelected)) {
                             VStack {
-                                Text(largeArray[num][1])
-                                Text(largeArray[num][0]).foregroundColor(.black)
+                                Text(largeArray[num][1]).font(.system(size: 40))
+                                Text(largeArray[num][0])
+                                    .font(.system(size: 15))
+                                    .foregroundColor(.black)
                             }
                         }
                         .simultaneousGesture(TapGesture().onEnded {
@@ -45,8 +47,10 @@ struct LargeCategoryView: View {
                         })
                         .navigationBarTitle("", displayMode: .inline)
                         .navigationBarHidden(true)
-                        .frame(width: 110, height: 110)
-                        .background(RoundedRectangle(cornerRadius: 15).fill(Color.white).shadow(radius: 5, y: 3))
+                        .frame(width: 110, height: 150)
+                        .background(RoundedRectangle(cornerRadius: 15)
+                            .fill(Color.white)
+                            .shadow(color: Color.black.opacity(0.1), radius: 5, y: 3))
                     }
                 }.padding(.top, 5)
                 Spacer()

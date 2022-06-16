@@ -18,7 +18,7 @@ struct ListView: View {
             } label: {
                 Image(systemName: "plus")
             }
-            .fullScreenCover(isPresented: $isPresented, content: {LargeCategoryView()})
+            .fullScreenCover(isPresented: $isPresented, content: {LargeCategoryView(isPresented: self.$isPresented)})
         }
     }
 }
