@@ -25,7 +25,8 @@ struct ProgressCircleView : View {
                     .rotationEffect(.degrees(-90.0))
                     .animation(.easeOut, value: progress)
             }.frame(width: 250, height: 250)
-            
+            //https://www.simpleswiftguide.com/how-to-build-a-circular-progress-bar-in-swiftui/
+
             ZStack {
                 Text(String(format: "%.0f %%", min(self.progress, 1.0)*100.0))
                     .font(.largeTitle)
@@ -48,11 +49,11 @@ struct ProgressCircleView : View {
                     Image("꽈당이 4")
                         .resizable()
                         .frame(width: 200, height: 200)
-
-            }//.background(.yellow)
-        }.padding()
+                }
+            }
+        }//.background(LinearGradient(gradient: Gradient(colors: [Color("mint"), Color("green")]), startPoint: .top, endPoint: .bottom))
+         .padding()
     }
-}
 }
 struct ProgressCircleView_Previews: PreviewProvider {
     static var previews: some View {
@@ -60,4 +61,3 @@ struct ProgressCircleView_Previews: PreviewProvider {
     }
 }
 
-//https://www.simpleswiftguide.com/how-to-build-a-circular-progress-bar-in-swiftui/

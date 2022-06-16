@@ -9,10 +9,15 @@ import SwiftUI
 
 var today = Date()
 
+let backgroundGreen = LinearGradient(gradient: Gradient(colors: [Color("mint"), Color("green")]), startPoint: .top, endPoint: .bottom)
+let backgroundYellow = LinearGradient(gradient: Gradient(colors: [Color("yellow"), Color("orange")]), startPoint: .top, endPoint: .bottom)
+let backgroundRed = LinearGradient(gradient: Gradient(colors: [Color("tangerine"), Color("coral")]), startPoint: .top, endPoint: .bottom)
+let backgroundBlack = LinearGradient(gradient: Gradient(colors: [Color("gray"), Color("black")]), startPoint: .top, endPoint: .bottom)
+
 struct MainView: View {
     @State private var todaySugarValue: Int = 18
     @State private var sugarGoalValue: Int = 40
-    @State var progressValue: Float = 0.98
+    @State var progressValue: Float = 0.5
     
     static var dateFormat: DateFormatter {
         let formatter = DateFormatter()
@@ -22,6 +27,20 @@ struct MainView: View {
     
     var body: some View {
         NavigationView {
+            ZStack{
+                if progressValue <= 0.39 {
+                    backgroundGreen
+                        .ignoresSafeArea()
+                } else if progressValue <= 0.79 {
+                    backgroundYellow
+                        .ignoresSafeArea()
+                } else if progressValue <= 0.99 {
+                    backgroundRed
+                        .ignoresSafeArea()
+                } else {
+                    backgroundBlack
+                        .ignoresSafeArea()
+                }
                 VStack {
                     ZStack {
                         Text("\(today, formatter: MainView.dateFormat)")
@@ -38,7 +57,8 @@ struct MainView: View {
                     }
                     ProgressCircleView(progress: self.$progressValue)
                     Spacer()
-                }.background(LinearGradient(gradient: Gradient(colors: [Color("mint"), Color("green")]), startPoint: .top, endPoint: .bottom))
+                }
+        }
         }
         .navigationBarTitle("main")
     }
