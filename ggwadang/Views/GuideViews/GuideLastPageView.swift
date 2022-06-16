@@ -16,32 +16,41 @@ struct GuideLastPageView: View {
     
     var body: some View {
         VStack {
-            Image(imageName)
-                .font(.system(size: 100))
+            // 이미지 적용 완료
+            VStack {
+                Image(imageName)
+                    .resizable()
+                    .frame(width: (UIScreen.main.bounds.width)*0.7, height: (UIScreen.main.bounds.width)*0.7)
                 .padding()
+            }
             
-            VStack (alignment: .leading){
+            VStack {
                 Text(title)
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding()
-                
-                Text(subtitle)
                     .font(.title2)
-                    .padding()
-            }
-            
-            Button {    // 온보딩 완료 버튼
-                isFirstLaunching.toggle()
-            } label: {
-                Text("시작하기")
-                    .foregroundColor(.black)
                     .fontWeight(.bold)
-                    .frame(width: 200, height: 50)
-                    .background(Color.white)
-                    .cornerRadius(30)
+                .padding()
+                Text(subtitle)
+                    .font(.body)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+                Spacer()
+                //MARK: - 도움말 온보딩 완료 버튼
+                Button {
+                    isFirstLaunching.toggle()
+                } label: {
+                    Text("시작하기")
+                        .foregroundColor(.black)
+                        .fontWeight(.bold)
+                        .frame(width: 350, height: 50)
+                        .background(Color.white)
+                        .cornerRadius(30)
+                }
+                
             }
-            .padding()
+            .foregroundColor(.white)
+            .frame(height: 300)
+
+            
         }
 
     }
