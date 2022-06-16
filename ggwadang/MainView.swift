@@ -10,6 +10,10 @@ import SwiftUI
 var today = Date()
 
 struct MainView: View {
+    @State private var todaySugarValue: Int = 18
+    @State private var sugarGoalValue: Int = 40
+    @State var progressValue: Float = 0.63
+    
     static var dateFormat: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY년 M월 d일"
@@ -32,11 +36,15 @@ struct MainView: View {
                             .padding(20.0)
                     }
                 }
+                ZStack {
+                    ProgressCircleView(progress: self.$progressValue)
+                                }
+                                Spacer()
+                            }.background(LinearGradient(gradient: Gradient(colors: [Color("mint"), Color("green")]), startPoint: .top, endPoint: .bottom))
+        }
                 .navigationBarTitle("main")
             }
         }
-    }
-}
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
