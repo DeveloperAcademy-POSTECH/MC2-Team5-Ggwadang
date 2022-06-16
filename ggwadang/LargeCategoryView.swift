@@ -20,19 +20,8 @@ struct LargeCategoryView: View {
     var body: some View {
         NavigationView{
             VStack {
-                Button {
-                    isPresented.toggle()
-                } label: {
-                    Image(systemName: "xmark")
-                }.frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 20)
-                NavigationLink(destination: SearchView()) {
-                    Text("검색")
-                    Image(systemName: "magnifyingglass")
-                }
-                .navigationBarTitle("", displayMode: .inline)
-                .navigationBarHidden(true)
-                .frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 20)
-                
+                dismissButton(isPresented: self.$isPresented)
+                searchButton()
                 LazyVGrid(columns: gridItemLayout, spacing: 10) {
                     ForEach((0..<largeArray.count), id: \.self) { num in
                         NavigationLink(destination: MediumCategoryView(isPresented: self.$isPresented, large_isSelected: self.$large_isSelected, medium_isSelected: self.$medium_isSelected, small_isSelected: self.$small_isSelected).environmentObject(self.store)) {
@@ -57,5 +46,28 @@ struct LargeCategoryView: View {
                 Spacer()
             }
         }
+    }
+}
+
+struct dismissButton: View {
+    @Binding var isPresented: Bool
+    var body: some View {
+        Button {
+            isPresented.toggle()
+        } label: {
+            Image(systemName: "xmark")
+        }.frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 20)
+    }
+}
+
+struct searchButton: View {
+    var body: some View {
+        NavigationLink(destination: SearchView()) {
+            Text("검색")
+            Image(systemName: "magnifyingglass")
+        }
+        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarHidden(true)
+        .frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 20)
     }
 }
