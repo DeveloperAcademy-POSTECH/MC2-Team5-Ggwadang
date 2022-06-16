@@ -13,6 +13,10 @@
 		4D0C64D0285AFC3400FF70E6 /* SmallCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C64CF285AFC3400FF70E6 /* SmallCategoryView.swift */; };
 		4D0C64D2285AFC5500FF70E6 /* IntakeAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C64D1285AFC5500FF70E6 /* IntakeAmountView.swift */; };
 		4D0C64D4285AFC7D00FF70E6 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C64D3285AFC7D00FF70E6 /* SearchView.swift */; };
+		4D4E370A285B5E6700B777C1 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 4D4E3709285B5E6700B777C1 /* Realm */; };
+		4D4E370C285B5E6700B777C1 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4D4E370B285B5E6700B777C1 /* RealmSwift */; };
+		4D4E370F285B5E8500B777C1 /* RecordDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E370E285B5E8500B777C1 /* RecordDB.swift */; };
+		4D4E3711285B5E8F00B777C1 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E3710285B5E8F00B777C1 /* Record.swift */; };
 		4D7275FE284CEE5800F4DCC6 /* ggwadangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7275FD284CEE5800F4DCC6 /* ggwadangApp.swift */; };
 		4D727600284CEE5800F4DCC6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7275FF284CEE5800F4DCC6 /* ContentView.swift */; };
 		4D727602284CEE5800F4DCC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D727601284CEE5800F4DCC6 /* Assets.xcassets */; };
@@ -26,6 +30,8 @@
 		4D0C64CF285AFC3400FF70E6 /* SmallCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCategoryView.swift; sourceTree = "<group>"; };
 		4D0C64D1285AFC5500FF70E6 /* IntakeAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeAmountView.swift; sourceTree = "<group>"; };
 		4D0C64D3285AFC7D00FF70E6 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		4D4E370E285B5E8500B777C1 /* RecordDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDB.swift; sourceTree = "<group>"; };
+		4D4E3710285B5E8F00B777C1 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		4D7275FA284CEE5800F4DCC6 /* ggwadang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ggwadang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7275FD284CEE5800F4DCC6 /* ggwadangApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ggwadangApp.swift; sourceTree = "<group>"; };
 		4D7275FF284CEE5800F4DCC6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,12 +44,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D4E370C285B5E6700B777C1 /* RealmSwift in Frameworks */,
+				4D4E370A285B5E6700B777C1 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D4E370D285B5E7500B777C1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4D4E370E285B5E8500B777C1 /* RecordDB.swift */,
+				4D4E3710285B5E8F00B777C1 /* Record.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		4D7275F1284CEE5800F4DCC6 = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +80,7 @@
 		4D7275FC284CEE5800F4DCC6 /* ggwadang */ = {
 			isa = PBXGroup;
 			children = (
+				4D4E370D285B5E7500B777C1 /* Models */,
 				4D7275FD284CEE5800F4DCC6 /* ggwadangApp.swift */,
 				4D7275FF284CEE5800F4DCC6 /* ContentView.swift */,
 				4D0C64C7285AFB0200FF70E6 /* ListView.swift */,
@@ -101,6 +119,10 @@
 			dependencies = (
 			);
 			name = ggwadang;
+			packageProductDependencies = (
+				4D4E3709285B5E6700B777C1 /* Realm */,
+				4D4E370B285B5E6700B777C1 /* RealmSwift */,
+			);
 			productName = ggwadang;
 			productReference = 4D7275FA284CEE5800F4DCC6 /* ggwadang.app */;
 			productType = "com.apple.product-type.application";
@@ -129,6 +151,9 @@
 				Base,
 			);
 			mainGroup = 4D7275F1284CEE5800F4DCC6;
+			packageReferences = (
+				4D4E3708285B5E6700B777C1 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = 4D7275FB284CEE5800F4DCC6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -157,8 +182,10 @@
 			files = (
 				4D0C64D0285AFC3400FF70E6 /* SmallCategoryView.swift in Sources */,
 				4D0C64D4285AFC7D00FF70E6 /* SearchView.swift in Sources */,
+				4D4E3711285B5E8F00B777C1 /* Record.swift in Sources */,
 				4D727600284CEE5800F4DCC6 /* ContentView.swift in Sources */,
 				4D0C64CE285AFBEB00FF70E6 /* MediumCategoryView.swift in Sources */,
+				4D4E370F285B5E8500B777C1 /* RecordDB.swift in Sources */,
 				4D0C64CC285AFBA700FF70E6 /* LargeCategoryView.swift in Sources */,
 				4D0C64D2285AFC5500FF70E6 /* IntakeAmountView.swift in Sources */,
 				4D7275FE284CEE5800F4DCC6 /* ggwadangApp.swift in Sources */,
@@ -361,6 +388,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4D4E3708285B5E6700B777C1 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4D4E3709285B5E6700B777C1 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D4E3708285B5E6700B777C1 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		4D4E370B285B5E6700B777C1 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D4E3708285B5E6700B777C1 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4D7275F2284CEE5800F4DCC6 /* Project object */;
 }
