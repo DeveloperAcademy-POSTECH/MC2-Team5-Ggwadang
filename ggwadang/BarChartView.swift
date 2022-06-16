@@ -19,7 +19,7 @@ struct BarChartView: View {
     ]
     
     @State var week: [String] = [
-        "0", "1", "2", "3", "4", "5", "6"
+        "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"
     ]
     
     @State var number: Double = 38.034535
@@ -35,7 +35,8 @@ struct BarChartView: View {
                     Text("년").tag(2)
                 }.pickerStyle(SegmentedPickerStyle())
                     .padding(.horizontal, 24)
-                
+                    
+                    
                 VStack (alignment: .leading){
                     HStack {
                         Text("섭취한 당류")
@@ -48,59 +49,142 @@ struct BarChartView: View {
                         .fontWeight(.bold)
                 }.frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading,30)
-                
-                HStack (alignment: .bottom, spacing: 20){
-                    BarView(value: dataPoints[pickerSelectedItem][0], week: "월")
-                        .onTapGesture {
-                            number = dataPoints[pickerSelectedItem][0]
+                switch pickerSelectedItem{
+                case 0:
+                    HStack (alignment: .bottom, spacing: 20){
+                        BarView(value: dataPoints[pickerSelectedItem][0], week: "월")
+                                .onTapGesture {
+                                    number = dataPoints[pickerSelectedItem][0]
+                                }
+                            BarView(value: dataPoints[pickerSelectedItem][1], week: "화")
+                                .onTapGesture {
+                                    number = dataPoints[pickerSelectedItem][1]
+                                }
+                            BarView(value: dataPoints[pickerSelectedItem][2], week: "수")
+                                .onTapGesture {
+                                    number = (dataPoints[pickerSelectedItem][2])
+                                }
+                            BarView(value: dataPoints[pickerSelectedItem][3], week: "목")
+                                .onTapGesture {
+                                    number = (dataPoints[pickerSelectedItem][3])
+                                }
+                            BarView(value: dataPoints[pickerSelectedItem][4], week: "금")
+                                .onTapGesture {
+                                    number = (dataPoints[pickerSelectedItem][4])
+                                }
+                            BarView(value: dataPoints[pickerSelectedItem][5], week: "토")
+                                .onTapGesture {
+                                    number = (dataPoints[pickerSelectedItem][5])
+                                }
+                            BarView(value: dataPoints[pickerSelectedItem][6], week: "일")
+                                .onTapGesture {
+                                    number = (dataPoints[pickerSelectedItem][6])
+                                }
                         }
-                    BarView(value: dataPoints[pickerSelectedItem][1], week: "화")
-                        .onTapGesture {
-                            number = dataPoints[pickerSelectedItem][1]
+                        .animation(.default)
+                case 1:
+                    HStack (alignment: .bottom, spacing: 20){
+                            BarView(value: dataPoints[pickerSelectedItem][0], week: "1째주")
+                                .onTapGesture {
+                                    number = dataPoints[pickerSelectedItem][0]
+                                }
+                            BarView(value: dataPoints[pickerSelectedItem][1], week: "2째주")
+                                .onTapGesture {
+                                    number = dataPoints[pickerSelectedItem][1]
+                                }
+                            BarView(value: dataPoints[pickerSelectedItem][2], week: "3째주")
+                                .onTapGesture {
+                                    number = (dataPoints[pickerSelectedItem][2])
+                                }
+                            BarView(value: dataPoints[pickerSelectedItem][3], week: "4째주")
+                                .onTapGesture {
+                                    number = (dataPoints[pickerSelectedItem][3])
+                                }
                         }
-                    BarView(value: dataPoints[pickerSelectedItem][2], week: "수")
-                        .onTapGesture {
-                            number = (dataPoints[pickerSelectedItem][2])
+                        .animation(.default)
+                case 2:
+                    HStack (alignment: .bottom, spacing: 7){
+                        Group {
+                            BarView(value: dataPoints[pickerSelectedItem][0], week: "1월")
+                                .onTapGesture {
+                                    number = dataPoints[pickerSelectedItem][0]
+                                }
+                            BarView(value: dataPoints[pickerSelectedItem][1], week: "2월")
+                                .onTapGesture {
+                                    number = dataPoints[pickerSelectedItem][1]
+                                }
+                            BarView(value: dataPoints[pickerSelectedItem][6], week: "3월")
+                                .onTapGesture {
+                                    number = (dataPoints[pickerSelectedItem][6])
+                                }
+                            BarView(value: dataPoints[pickerSelectedItem][0], week: "4월")
+                                .onTapGesture {
+                                    number = dataPoints[pickerSelectedItem][0]
+                                }
+                            BarView(value: dataPoints[pickerSelectedItem][0], week: "5월")
+                                .onTapGesture {
+                                    number = dataPoints[pickerSelectedItem][0]
+                                }
+                            BarView(value: dataPoints[pickerSelectedItem][0], week: "6월")
+                                .onTapGesture {
+                                    number = dataPoints[pickerSelectedItem][0]
+                                }
+                            BarView(value: dataPoints[pickerSelectedItem][0], week: "7월")
+                                .onTapGesture {
+                                    number = dataPoints[pickerSelectedItem][0]
+                                }
+                            BarView(value: dataPoints[pickerSelectedItem][0], week: "8월")
+                                .onTapGesture {
+                                    number = dataPoints[pickerSelectedItem][0]
+                                }
+                            BarView(value: dataPoints[pickerSelectedItem][0], week: "9월")
+                                .onTapGesture {
+                                    number = dataPoints[pickerSelectedItem][0]
+                                }
+                            BarView(value: dataPoints[pickerSelectedItem][0], week: "10월")
+                                .onTapGesture {
+                                    number = dataPoints[pickerSelectedItem][0]
+                                }
                         }
-                    BarView(value: dataPoints[pickerSelectedItem][3], week: "목")
-                        .onTapGesture {
-                            number = (dataPoints[pickerSelectedItem][3])
+                        BarView(value: dataPoints[pickerSelectedItem][0], week: "11월")
+                            .onTapGesture {
+                                number = dataPoints[pickerSelectedItem][0]
+                            }
+                        BarView(value: dataPoints[pickerSelectedItem][0], week: "12월")
+                            .onTapGesture {
+                                number = dataPoints[pickerSelectedItem][0]
+                            }
                         }
-                    BarView(value: dataPoints[pickerSelectedItem][4], week: "금")
-                        .onTapGesture {
-                            number = (dataPoints[pickerSelectedItem][4])
-                        }
-                    BarView(value: dataPoints[pickerSelectedItem][5], week: "토")
-                        .onTapGesture {
-                            number = (dataPoints[pickerSelectedItem][5])
-                        }
-                    BarView(value: dataPoints[pickerSelectedItem][6], week: "일")
-                        .onTapGesture {
-                            number = (dataPoints[pickerSelectedItem][6])
-                        }
+                        .animation(.default)
+                default:
+                    EmptyView()
                 }
-                .animation(.default)
             }
         }
     }
-    
+}
     
 struct BarView: View {
     
     var value: CGFloat
     var week: String
+//    var month: String
         
     var body: some View {
         HStack(alignment: .bottom) {
             VStack {
-                Capsule().frame(width: 20, height: value)
+                Capsule().frame(width: 13, height: value)
                     .foregroundColor(.green)
                 Text(week)
+                    .font(.system(size:15))
             }
         }
     }
 }
-}
+
+    
+
+
 
 struct BarChartView_Previews: PreviewProvider {
     static var previews: some View {

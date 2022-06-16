@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        MainView2()
+        BarChartView()
 //        Text("Hello, world!")
 //            .padding()
     }

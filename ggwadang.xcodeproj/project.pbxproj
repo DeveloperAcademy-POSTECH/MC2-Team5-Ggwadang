@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F1F0BE428596813007E9400 /* MainView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F0BE328596813007E9400 /* MainView2.swift */; };
+		3F1F0BE82859FA32007E9400 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F0BE72859FA32007E9400 /* BarChartView.swift */; };
 		4D7275FE284CEE5800F4DCC6 /* ggwadangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7275FD284CEE5800F4DCC6 /* ggwadangApp.swift */; };
 		4D727600284CEE5800F4DCC6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7275FF284CEE5800F4DCC6 /* ContentView.swift */; };
 		4D727602284CEE5800F4DCC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D727601284CEE5800F4DCC6 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		3F1F0BE328596813007E9400 /* MainView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView2.swift; sourceTree = "<group>"; };
+		3F1F0BE72859FA32007E9400 /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		4D7275FA284CEE5800F4DCC6 /* ggwadang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ggwadang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7275FD284CEE5800F4DCC6 /* ggwadangApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ggwadangApp.swift; sourceTree = "<group>"; };
 		4D7275FF284CEE5800F4DCC6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 				4D7275FD284CEE5800F4DCC6 /* ggwadangApp.swift */,
 				4D7275FF284CEE5800F4DCC6 /* ContentView.swift */,
 				3F1F0BE328596813007E9400 /* MainView2.swift */,
+				3F1F0BE72859FA32007E9400 /* BarChartView.swift */,
 				4D727601284CEE5800F4DCC6 /* Assets.xcassets */,
 				4D727603284CEE5800F4DCC6 /* Preview Content */,
 			);
@@ -143,6 +146,7 @@
 				4D727600284CEE5800F4DCC6 /* ContentView.swift in Sources */,
 				4D7275FE284CEE5800F4DCC6 /* ggwadangApp.swift in Sources */,
 				3F1F0BE428596813007E9400 /* MainView2.swift in Sources */,
+				3F1F0BE82859FA32007E9400 /* BarChartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
