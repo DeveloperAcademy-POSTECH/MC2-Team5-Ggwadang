@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MediumCategoryView: View {
+    @EnvironmentObject var store: RecordStore
     @Binding var isPresented: Bool
     @Binding var large_isSelected: String
     @Binding var medium_isSelected: String
@@ -20,7 +21,7 @@ struct MediumCategoryView: View {
     var body: some View {
         LazyVGrid(columns: gridItemLayout, spacing: 10) {
             ForEach((0..<mediumArray.count), id: \.self) { num in
-                NavigationLink(destination: SmallCategoryView(isPresented: self.$isPresented, large_isSelected: self.$large_isSelected, medium_isSelected: self.$medium_isSelected, small_isSelected: self.$small_isSelected)) {
+                NavigationLink(destination: SmallCategoryView(isPresented: self.$isPresented, large_isSelected: self.$large_isSelected, medium_isSelected: self.$medium_isSelected, small_isSelected: self.$small_isSelected).environmentObject(self.store)) {
                         Text(mediumArray[num]).foregroundColor(.black)
                 }
                 .simultaneousGesture(TapGesture().onEnded {

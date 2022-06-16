@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LargeCategoryView: View {
+    @EnvironmentObject var store: RecordStore
     @Binding var isPresented: Bool
     @State var large_isSelected = ""
     @State var medium_isSelected = ""
@@ -34,7 +35,7 @@ struct LargeCategoryView: View {
                 
                 LazyVGrid(columns: gridItemLayout, spacing: 10) {
                     ForEach((0..<largeArray.count), id: \.self) { num in
-                        NavigationLink(destination: MediumCategoryView(isPresented: self.$isPresented, large_isSelected: self.$large_isSelected, medium_isSelected: self.$medium_isSelected, small_isSelected: self.$small_isSelected)) {
+                        NavigationLink(destination: MediumCategoryView(isPresented: self.$isPresented, large_isSelected: self.$large_isSelected, medium_isSelected: self.$medium_isSelected, small_isSelected: self.$small_isSelected).environmentObject(self.store)) {
                             VStack {
                                 Text(largeArray[num][1]).font(.system(size: 40))
                                 Text(largeArray[num][0])
