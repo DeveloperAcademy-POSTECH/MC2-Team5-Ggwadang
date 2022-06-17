@@ -42,7 +42,7 @@ struct RecordRow: View {
         HStack {
             Text("\(record.large) > \(record.medium) > \(record.small) / \(record.date)")
             Spacer()
-            Text("\(record.sugar, specifier: "%.1f")g").bold()
+            Text("\(record.calculatedSugar, specifier: "%.1f")g").bold()
             Button(action: deleteRecord) {
                 Image(systemName: "trash.circle.fill")
             }

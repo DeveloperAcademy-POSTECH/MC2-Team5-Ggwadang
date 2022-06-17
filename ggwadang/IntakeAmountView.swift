@@ -19,7 +19,7 @@ struct IntakeAmountView: View {
     @State var isSelected = [false, false, false, false, false]
     @State var directTyping = false
     
-    @State var intake = 0.0
+    @State var foodAmount = 0.0
     // TODO: 데이터베이스로부터 제품 1g당 당류 불러오기 (=sugarAmount)
     var sugarAmount = 0.1
     // TODO: 카테고리별로 단위, 1회제공량 정의해야함 (제품당 단위 ex. 음료1캔=190ml)
@@ -37,7 +37,7 @@ struct IntakeAmountView: View {
                             directTyping = false
                         }
                         self.isSelected[num].toggle()
-                        intake = (servingCount[num] as NSString).doubleValue * servingSize
+                        foodAmount = (servingCount[num] as NSString).doubleValue * servingSize
                     } label: {
                         Text("\(servingCount[num])컵")
                             .padding()
@@ -62,7 +62,7 @@ struct IntakeAmountView: View {
             .padding(.top, 5)
             .padding([.leading, .trailing], 20)
             if(directTyping) {
-                TextField("섭취량(g/ml)을 입력하세요.", value: $intake, format: .number)
+                TextField("섭취량(g/ml)을 입력하세요.", value: $foodAmount, format: .number)
                     .keyboardType(.numberPad)
                     .textFieldStyle(.roundedBorder)
                     .padding(20)
@@ -73,7 +73,7 @@ struct IntakeAmountView: View {
                 saveRecord()
                 isPresented.toggle()
             } label: {
-                Text("당 \(intake*sugarAmount, specifier: "%.1f")g 추가하기")
+                Text("당 \(foodAmount*sugarAmount, specifier: "%.1f")g 추가하기")
                     .foregroundColor(Color.white)
             }
             .frame(width: 350, height: 50)
@@ -99,7 +99,8 @@ extension IntakeAmountView {
             large: large_isSelected,
             medium: medium_isSelected,
             small: small_isSelected,
-            sugar: intake*sugarAmount)
+            calculatedSugar: foodAmount*sugarAmount,
+            foodAmount: foodAmount)
     }
     
     func dateFormatter(date: Date) -> String {

@@ -13,7 +13,8 @@ struct Record: Identifiable {
     let large: String
     let medium: String
     let small: String
-    let sugar: Double
+    let calculatedSugar: Double
+    let foodAmount: Double
 }
 
 extension Record {
@@ -23,6 +24,7 @@ extension Record {
         large = recordDB.large
         medium = recordDB.medium
         small = recordDB.small
-        sugar = recordDB.sugar
+        calculatedSugar = recordDB.calculatedSugar
+        foodAmount = recordDB.foodAmount
     }
 }

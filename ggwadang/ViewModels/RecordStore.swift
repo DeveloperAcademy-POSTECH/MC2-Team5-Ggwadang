@@ -21,7 +21,7 @@ final class RecordStore: ObservableObject {
 }
 
 extension RecordStore {
-    func create(date: String, large: String, medium: String, small: String, sugar: Double) {
+    func create(date: String, large: String, medium: String, small: String, calculatedSugar: Double, foodAmount: Double) {
         objectWillChange.send()
         
         do {
@@ -33,7 +33,8 @@ extension RecordStore {
             recordDB.medium = medium
             recordDB.small = small
             recordDB.date = date
-            recordDB.sugar = sugar
+            recordDB.calculatedSugar = calculatedSugar
+            recordDB.foodAmount = foodAmount
             
             try realm.write {
                 realm.add(recordDB)
