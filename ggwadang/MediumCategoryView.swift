@@ -27,12 +27,11 @@ struct MediumCategoryView: View {
                 .simultaneousGesture(TapGesture().onEnded {
                     medium_isSelected=mediumArray[num]
                 })
-                .frame(width: 110, height: 60)
-                .background(RoundedRectangle(cornerRadius: 15)
-                    .fill(Color.white)
-                    .shadow(color: Color.black.opacity(0.1), radius: 5, y: 3))
+                .modifier(gridModifier())
             }
-        }.padding(.top, 20)
+        }
+        .padding(.top, 20)
+        .padding([.leading, .trailing], 20)
         .navigationBarTitle("", displayMode: .inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -46,4 +45,16 @@ struct MediumCategoryView: View {
         }
         Spacer()
     }
+}
+
+
+struct gridModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .frame(width: 110, height: 60)
+            .background(RoundedRectangle(cornerRadius: 15)
+                .fill(Color.white)
+                .shadow(color: Color.black.opacity(0.1), radius: 5, y: 3))
+    }
+    
 }

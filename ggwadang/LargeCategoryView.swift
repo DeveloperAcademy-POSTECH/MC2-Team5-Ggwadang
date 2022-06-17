@@ -25,7 +25,7 @@ struct LargeCategoryView: View {
                 LazyVGrid(columns: gridItemLayout, spacing: 10) {
                     ForEach((0..<largeArray.count), id: \.self) { num in
                         NavigationLink(destination: MediumCategoryView(isPresented: self.$isPresented, large_isSelected: self.$large_isSelected, medium_isSelected: self.$medium_isSelected, small_isSelected: self.$small_isSelected).environmentObject(self.store)) {
-                            VStack {
+                            VStack(spacing: 10) {
                                 Text(largeArray[num][1]).font(.system(size: 40))
                                 Text(largeArray[num][0])
                                     .font(.system(size: 15))
@@ -35,18 +35,28 @@ struct LargeCategoryView: View {
                         .simultaneousGesture(TapGesture().onEnded {
                             large_isSelected=largeArray[num][0]
                         })
-                        .navigationBarTitle("", displayMode: .inline)
-                        .navigationBarHidden(true)
-                        .frame(width: 110, height: 150)
-                        .background(RoundedRectangle(cornerRadius: 15)
-                            .fill(Color.white)
-                            .shadow(color: Color.black.opacity(0.1), radius: 5, y: 3))
+                        .modifier(navViewModifier())
                     }
-                }.padding(.top, 5)
+                }
+                .padding(.top, 5)
+                .padding([.leading, .trailing], 20)
                 Spacer()
             }
         }
     }
+}
+
+struct navViewModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .navigationBarTitle("", displayMode: .inline)
+            .navigationBarHidden(true)
+            .frame(width: 110, height: 150)
+            .background(RoundedRectangle(cornerRadius: 15)
+                .fill(Color.white)
+                .shadow(color: Color.black.opacity(0.1), radius: 5, y: 3))
+    }
+    
 }
 
 struct dismissButton: View {

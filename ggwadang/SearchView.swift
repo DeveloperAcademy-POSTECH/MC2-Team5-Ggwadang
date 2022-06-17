@@ -21,9 +21,10 @@ struct SearchView: View {
                 ForEach(searchResults, id:\.self) { name in
                     NavigationLink(destination: Text(name)) {
                         Text(name)
-                    }
+                    }.listRowBackground(Color.clear)
                 }
             }
+            .onAppear(perform: {UITableView.appearance().backgroundColor = UIColor.white})
             .searchable(text: $query, placement: .navigationBarDrawer(displayMode: .always), prompt:"검색어를 입력해주세요")
             .navigationBarTitleDisplayMode(.inline)
         }

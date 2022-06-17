@@ -22,7 +22,9 @@ struct SmallCategoryView: View {
             NavigationLink(destination: IntakeAmountView(isPresented: self.$isPresented, large_isSelected: self.$large_isSelected, medium_isSelected: self.$medium_isSelected, small_isSelected: self.$smallArray[num]).environmentObject(self.store)) {
                 Text(smallArray[num])
             }
+            .listRowBackground(Color.clear)
         }
+        .onAppear(perform: {UITableView.appearance().backgroundColor = UIColor.white})
         .navigationBarTitle("", displayMode: .inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {

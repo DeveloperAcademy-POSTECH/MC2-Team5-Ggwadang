@@ -58,12 +58,14 @@ struct IntakeAmountView: View {
                     .background(RoundedRectangle(cornerRadius: 15)
                         .fill(self.directTyping ? Color.accentColor : Color.white)
                         .shadow(color: Color.black.opacity(0.1), radius: 5, y: 3))
-            }.padding(.top, 5)
+            }
+            .padding(.top, 5)
+            .padding([.leading, .trailing], 20)
             if(directTyping) {
                 TextField("섭취량(g/ml)을 입력하세요.", value: $intake, format: .number)
                     .keyboardType(.numberPad)
                     .textFieldStyle(.roundedBorder)
-                    .padding(10)
+                    .padding(20)
             }
             
             Spacer()
