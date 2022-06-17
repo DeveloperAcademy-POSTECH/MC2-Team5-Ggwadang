@@ -18,7 +18,7 @@ let backgroundBlack = LinearGradient(gradient: Gradient(colors: [Color("gray"), 
 struct MainView: View {
     @State private var todaySugarValue: Int = 18
     @State private var sugarGoalValue: Int = 40
-    @State var progressValue: Float =  0.5
+    @State var progressValue: Float =  1.6
     
     static var dateFormat: DateFormatter {
         let formatter = DateFormatter()
