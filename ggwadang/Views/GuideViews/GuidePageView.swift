@@ -36,8 +36,6 @@ struct GuidePageView: View {
             .foregroundColor(.white)
             .frame(height: 300)
 //            .background(Color.blue)
-            
-            
         }
     }
 }
@@ -45,9 +43,9 @@ struct GuidePageView: View {
 struct GuidePageView_Previews: PreviewProvider {
     static var previews: some View {
         GuidePageView(
-            imageName: "꽈당이온보딩1",
+            imageName: "note.text.badge.plus",
             title: "쓰기 탭",
-            subtitle: "이 앱은 개인 메모장으로 쓸 수 있어요\n가나다\n아자차카타하"
+            subtitle: "이 앱은 개인 메모장으로 쓸 수 있어요"
         )
     }
 }
