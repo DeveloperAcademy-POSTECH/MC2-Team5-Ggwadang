@@ -11,8 +11,6 @@ struct ContentView: View {
     @EnvironmentObject var store: RecordStore
     var body: some View {
         ListView(records: store.records)
-        MainView2()
-        BarChartView()
 //        Text("Hello, world!")
 //            .padding()
     }
