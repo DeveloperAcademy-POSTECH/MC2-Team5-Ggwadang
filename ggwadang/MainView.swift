@@ -18,8 +18,9 @@ let backgroundBlack = LinearGradient(gradient: Gradient(colors: [Color("gray"), 
 struct MainView: View {
     @State private var todaySugarValue: Int = 18
     @State private var sugarGoalValue: Int = 40
-    @State var progressValue: Float =  1.6
+    @State var progressValue: Float =  0.4
     
+    public var testNumber: Float = 9.9
     static var dateFormat: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY년 M월 d일"
@@ -29,29 +30,20 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             
-            // 진행률에 따른 배경색 변경
-            ZStack{
-                if progressValue <= 0.39 {
-                    backgroundGreen
-                        .ignoresSafeArea()
-                } else if progressValue <= 0.79 {
-                    backgroundYellow
-                        .ignoresSafeArea()
-                } else if progressValue <= 0.99 {
-                    backgroundRed
-                        .ignoresSafeArea()
-                } else {
-                    backgroundBlack
-                        .ignoresSafeArea()
-                }
-                
-                //날짜, 설정
-                VStack {
-                    ZStack {
+            //날짜, 설정
+                VStack{
+                    HStack {
+                        Text(" ")
+                            .frame(width: 25, height: 25)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                            .foregroundColor(.white)
+                            .padding(20.0)
+                        Spacer()
                         Text("\(today, formatter: MainView.dateFormat)")
                             .bold()
                             .foregroundColor(.white)
                             .frame(maxWidth:.infinity, alignment: .center)
+                        Spacer()
                         NavigationLink(destination: SettingView()) {
                             Image(systemName: "gearshape")
                                 .resizable()
@@ -63,11 +55,25 @@ struct MainView: View {
                     }
                     ProgressCircleView(progress: self.$progressValue)
                     Spacer()
-                }.offset(y:-100)
-            }
+            }.offset(y:-100)
+                .background(backGround(number: progressValue))
         }
         .navigationBarTitle("main")
+    }//end of Body()
+    
+    //Func backGround()
+    func backGround(number: Float) -> LinearGradient {
+        if progressValue <= 0.39 {
+            return backgroundGreen
+        } else if progressValue <= 0.79 {
+            return backgroundYellow
+        } else if progressValue <= 0.99 {
+            return backgroundRed
+        } else {
+            return backgroundBlack
+        }
     }
+    //end of backGround()
 }
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {

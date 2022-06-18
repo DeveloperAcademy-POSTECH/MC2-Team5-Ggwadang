@@ -12,6 +12,10 @@
 		4D727602284CEE5800F4DCC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D727601284CEE5800F4DCC6 /* Assets.xcassets */; };
 		4D727605284CEE5800F4DCC6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D727604284CEE5800F4DCC6 /* Preview Assets.xcassets */; };
 		B51A990C285AF72E00471E6B /* ProgressCircleView .swift in Sources */ = {isa = PBXBuildFile; fileRef = B51A990B285AF72E00471E6B /* ProgressCircleView .swift */; };
+		B51A9915285C5D5100471E6B /* ProfileSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51A9914285C5D5100471E6B /* ProfileSetting.swift */; };
+		B531274F285C726E00046CEC /* SugarGoalValueSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B531274E285C726E00046CEC /* SugarGoalValueSetting.swift */; };
+		B5312752285C72BE00046CEC /* NotificationSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5312751285C72BE00046CEC /* NotificationSetting.swift */; };
+		B5312756285C734C00046CEC /* IntroducingAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5312755285C734C00046CEC /* IntroducingAppView.swift */; };
 		B5FA9B6D28586779004226AC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FA9B6C28586779004226AC /* MainView.swift */; };
 		B5FA9B6F28590445004226AC /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FA9B6E28590445004226AC /* SettingView.swift */; };
 /* End PBXBuildFile section */
@@ -23,6 +27,10 @@
 		4D727601284CEE5800F4DCC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D727604284CEE5800F4DCC6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B51A990B285AF72E00471E6B /* ProgressCircleView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgressCircleView .swift"; sourceTree = "<group>"; };
+		B51A9914285C5D5100471E6B /* ProfileSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetting.swift; sourceTree = "<group>"; };
+		B531274E285C726E00046CEC /* SugarGoalValueSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarGoalValueSetting.swift; sourceTree = "<group>"; };
+		B5312751285C72BE00046CEC /* NotificationSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSetting.swift; sourceTree = "<group>"; };
+		B5312755285C734C00046CEC /* IntroducingAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroducingAppView.swift; sourceTree = "<group>"; };
 		B5FA9B6C28586779004226AC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B5FA9B6E28590445004226AC /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +70,10 @@
 				B5FA9B6C28586779004226AC /* MainView.swift */,
 				B51A990B285AF72E00471E6B /* ProgressCircleView .swift */,
 				B5FA9B6E28590445004226AC /* SettingView.swift */,
+				B51A9914285C5D5100471E6B /* ProfileSetting.swift */,
+				B531274E285C726E00046CEC /* SugarGoalValueSetting.swift */,
+				B5312751285C72BE00046CEC /* NotificationSetting.swift */,
+				B5312755285C734C00046CEC /* IntroducingAppView.swift */,
 				4D727601284CEE5800F4DCC6 /* Assets.xcassets */,
 				4D727603284CEE5800F4DCC6 /* Preview Content */,
 			);
@@ -146,9 +158,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B51A9915285C5D5100471E6B /* ProfileSetting.swift in Sources */,
+				B5312752285C72BE00046CEC /* NotificationSetting.swift in Sources */,
 				B51A990C285AF72E00471E6B /* ProgressCircleView .swift in Sources */,
+				B531274F285C726E00046CEC /* SugarGoalValueSetting.swift in Sources */,
 				4D727600284CEE5800F4DCC6 /* ContentView.swift in Sources */,
 				B5FA9B6F28590445004226AC /* SettingView.swift in Sources */,
+				B5312756285C734C00046CEC /* IntroducingAppView.swift in Sources */,
 				B5FA9B6D28586779004226AC /* MainView.swift in Sources */,
 				4D7275FE284CEE5800F4DCC6 /* ggwadangApp.swift in Sources */,
 			);
@@ -279,6 +295,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ggwadang/Preview Content\"";
+				DEVELOPMENT_TEAM = 3NWN4CNQ4T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -307,6 +324,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ggwadang/Preview Content\"";
+				DEVELOPMENT_TEAM = 3NWN4CNQ4T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
