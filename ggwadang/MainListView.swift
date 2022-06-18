@@ -27,7 +27,7 @@ struct MainListView: View {
                     .fill(Color.white)
                     .frame(width: 350, height: 80)
                     .shadow(color: .gray.opacity(0.15), radius: 20, x: 0, y: 3)
-                    .blur(radius: 0)
+                    
                 HStack {
                     HStack {
                         VStack (alignment: .leading){

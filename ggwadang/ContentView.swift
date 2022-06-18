@@ -9,9 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        BarChartView()
-//        Text("Hello, world!")
-//            .padding()
+        SettingNotificationView()
     }
 }
 
