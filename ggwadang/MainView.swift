@@ -18,7 +18,7 @@ let backgroundBlack = LinearGradient(gradient: Gradient(colors: [Color("gray"), 
 struct MainView: View {
     @State private var todaySugarValue: Int = 18
     @State private var sugarGoalValue: Int = 40
-    @State var progressValue: Float =  0.4
+    @State var progressValue: Float =  0.9
     
     public var testNumber: Float = 9.9
     static var dateFormat: DateFormatter {
@@ -31,30 +31,30 @@ struct MainView: View {
         NavigationView {
             
             //날짜, 설정
-                VStack{
-                    HStack {
-                        Text(" ")
+            VStack{
+                HStack {
+                    Text(" ")
+                        .frame(width: 25, height: 25)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .foregroundColor(.white)
+                        .padding(20.0)
+                    Spacer()
+                    Text("\(today, formatter: MainView.dateFormat)")
+                        .bold()
+                        .foregroundColor(.white)
+                        .frame(maxWidth:.infinity, alignment: .center)
+                    Spacer()
+                    NavigationLink(destination: SettingView()) {
+                        Image(systemName: "gearshape")
+                            .resizable()
                             .frame(width: 25, height: 25)
                             .frame(maxWidth: .infinity, alignment: .trailing)
                             .foregroundColor(.white)
                             .padding(20.0)
-                        Spacer()
-                        Text("\(today, formatter: MainView.dateFormat)")
-                            .bold()
-                            .foregroundColor(.white)
-                            .frame(maxWidth:.infinity, alignment: .center)
-                        Spacer()
-                        NavigationLink(destination: SettingView()) {
-                            Image(systemName: "gearshape")
-                                .resizable()
-                                .frame(width: 25, height: 25)
-                                .frame(maxWidth: .infinity, alignment: .trailing)
-                                .foregroundColor(.white)
-                                .padding(20.0)
-                        }
                     }
-                    ProgressCircleView(progress: self.$progressValue)
-                    Spacer()
+                }
+                ProgressCircleView(progress: self.$progressValue)
+                Spacer()
             }.offset(y:-100)
                 .background(backGround(number: progressValue))
         }
